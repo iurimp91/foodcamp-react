@@ -1,0 +1,22 @@
+header {
+    width: 100%;
+    height: 92px;
+    background-color: #CF2B2B;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    position: fixed;
+}
+
+header h1 {
+    font-family: Righteous;
+    font-size: 44px;
+    color: white;
+    letter-spacing: -0.012em;
+    padding: 8px 145px 2px 21px;
+}
+
+header span {
+    font-family: Roboto;
+    font-size: 18px;
+    color: white;
+    padding-left: 21px;
+}
