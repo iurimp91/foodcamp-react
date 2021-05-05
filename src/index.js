@@ -15,3 +15,8 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.querySelector(".root"));
+
+export default function selecionar(opcao) {
+    const elemento = document.querySelector(opcao);
+    elemento.style.boxShadow = "inset 0 0 0 5px #32B72F";
+}

@@ -22,7 +22,7 @@ export default function ConteudoSobremesas(props) {
 
                     return (
                         <li className="opcao">
-                            <img src="https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg" alt="frango" />
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg" />
                             <h1 className="titulo-opcao">{titulo}</h1>
                             <span className="texto-opcao">{texto}</span>
                             <div className="preco-contador">
