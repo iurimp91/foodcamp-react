@@ -9,7 +9,7 @@ export default function Conteudo() {
         titulo: "Frango Yin Yang",
         texto: "Um pouco de batata, um pouco de salada",
         preco: 14.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/frango_yin_yang.png",
         selecionado: false,
         qtd: 0
     }, { 
@@ -17,7 +17,7 @@ export default function Conteudo() {
         titulo: "Arroz e Feijão",
         texto: "Um pouco de arroz, um pouco de feijão",
         preco: 11.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/arroz-feijao.jpg",
         selecionado: false,
         qtd: 0
     }, {
@@ -25,7 +25,7 @@ export default function Conteudo() {
         titulo: "X-Podrão",
         texto: "Um nada de saúde, um nada de gourmet",
         preco: 9.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/podrao.jpg",
         selecionado: false,
         qtd: 0
     }]);
@@ -35,7 +35,7 @@ export default function Conteudo() {
         titulo: "Coquinha gelada",
         texto: "Lata 350ml",
         preco: 4.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/coquinha_gelada.png",
         selecionado: false,
         qtd: 0
     }, {
@@ -43,7 +43,7 @@ export default function Conteudo() {
         titulo: "Água de Coco",
         texto: "Garrafa 1000ml",
         preco: 7.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/agua-de-coco.jpg",
         selecionado: false,
         qtd: 0
     }, {
@@ -51,7 +51,7 @@ export default function Conteudo() {
         titulo: "Cerveja",
         texto: "Garrafa 600ml",
         preco: 9.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/cervejas.jpg",
         selecionado: false,
         qtd: 0
     }]);
@@ -61,7 +61,7 @@ export default function Conteudo() {
         titulo: "Pudim",
         texto: "Apenas pudim",
         preco: 7.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/pudim.png",
         selecionado: false,
         qtd: 0
     }, {
@@ -69,7 +69,7 @@ export default function Conteudo() {
         titulo: "Petit Gateau",
         texto: "Sorvete de creme",
         preco: 14.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/petit-gateau.jpg",
         selecionado: false,
         qtd: 0
     }, {
@@ -77,18 +77,18 @@ export default function Conteudo() {
         titulo: "Sorvete caseiro",
         texto: "Sabor chocolate",
         preco: 8.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        img: "./images/sorvete.jpg",
         selecionado: false,
         qtd: 0
     }]);
 
     function selecionar(id, categoria) {
         if(categoria === "pratos") {
-            setPratos([...pratos], pratos[id].selecionado = true, pratos[id].qtd = 1);
+            pratos[id].qtd > 0 || setPratos([...pratos], pratos[id].selecionado = true, pratos[id].qtd = 1);
         } else if(categoria === "bebidas") {
-            setBebidas([...bebidas], bebidas[id].selecionado = true, bebidas[id].qtd = 1);
+            bebidas[id].qtd > 0 || setBebidas([...bebidas], bebidas[id].selecionado = true, bebidas[id].qtd = 1);
         } else {
-            setSobremesas([...sobremesas], sobremesas[id].selecionado = true, sobremesas[id].qtd = 1);
+            sobremesas[id].qtd > 0 || setSobremesas([...sobremesas], sobremesas[id].selecionado = true, sobremesas[id].qtd = 1);
         }
     }
 
