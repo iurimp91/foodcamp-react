@@ -15,9 +15,9 @@ export default function ConteudoPratos(props) {
                             <div className="preco-contador">
                                 <span className="preco-opcao">R$ {preco.toFixed(2).replace(".", ",")}</span>
                                 <span className={selecionado || "escondido"}>
-                                    <button onClick={() => props.subtrair(id, "pratos")} className="subtrair">-</button>
+                                    <button onClick={(e) => props.subtrair(e, id, "pratos")} className="subtrair">-</button>
                                     {qtd}
-                                    <button onClick={() => props.adicionar(id, "pratos")} className="adicionar">+</button>
+                                    <button onClick={(e) => props.adicionar(e, id, "pratos")} className="adicionar">+</button>
                                 </span>
                             </div>
                         </li>

@@ -15,9 +15,9 @@ export default function ConteudoSobremesas(props) {
                             <div className="preco-contador">
                                 <span className="preco-opcao">R$ {preco.toFixed(2).replace(".", ",")}</span>
                                 <span className={selecionado || "escondido"}>
-                                    <button className="subtrair">-</button>
+                                    <button onClick={(e) => props.subtrair(e, id, "sobremesas")} className="subtrair">-</button>
                                     {qtd}
-                                    <button className="adicionar">+</button>
+                                    <button onClick={(e) => props.adicionar(e, id, "sobremesas")} className="adicionar">+</button>
                                 </span>
                             </div>
                         </li>
