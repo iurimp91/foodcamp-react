@@ -30,15 +30,73 @@ export default function Conteudo() {
         qtd: 0
     }]);
 
-    function selecionar(id) {
-        setPratos([...pratos], pratos[id].selecionado = true);
+    const [bebidas, setBebidas] = React.useState([{
+        id: 0,
+        titulo: "Coquinha gelada",
+        texto: "Lata 350ml",
+        preco: 4.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
+    }, {
+        id: 1,
+        titulo: "Água de Coco",
+        texto: "Garrafa 1000ml",
+        preco: 7.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
+    }, {
+        id: 2,
+        titulo: "Cerveja",
+        texto: "Garrafa 600ml",
+        preco: 9.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
+    }]);
+
+    const [sobremesas, setSobremesas] = React.useState([{
+        id: 0,
+        titulo: "Pudim",
+        texto: "Apenas pudim",
+        preco: 7.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
+    }, {
+        id: 1,
+        titulo: "Petit Gateau",
+        texto: "Sorvete de creme",
+        preco: 14.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
+    }, {
+        id: 2,
+        titulo: "Sorvete caseiro",
+        texto: "Sabor chocolate",
+        preco: 8.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
+    }]);
+
+    function selecionar(id, categoria) {
+        if(categoria === "pratos") {
+            setPratos([...pratos], pratos[id].selecionado = true);
+        } else if(categoria === "bebidas") {
+            setBebidas([...bebidas], bebidas[id].selecionado = true);
+        } else {
+            setSobremesas([...sobremesas], sobremesas[id].selecionado = true);
+        }
     }
 
     return (    
         <div className="conteudo">
             <ConteudoPratos selecionar={selecionar} pratos={pratos} />
-            <ConteudoBebidas />
-            <ConteudoSobremesas />
+            <ConteudoBebidas selecionar={selecionar} bebidas={bebidas} />
+            <ConteudoSobremesas selecionar={selecionar} sobremesas={sobremesas} />
         </div>
     );
 }

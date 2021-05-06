@@ -1,36 +1,14 @@
 export default function ConteudoSobremesas(props) {
-    const opcoesSobremesas = [{
-        titulo: "Pudim", //adicionar alt nas variáveis
-        texto: "Apenas pudim",
-        preco: 7.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
-        selecionado: false,
-        qtd: 0
-    }, {
-        titulo: "Petit Gateau",
-        texto: "Sorvete de creme",
-        preco: 14.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
-        selecionado: false,
-        qtd: 0
-    }, {
-        titulo: "Sorvete caseiro",
-        texto: "Sabor chocolate",
-        preco: 8.90,
-        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
-        selecionado: false,
-        qtd: 0
-    }];
 
     return (
         <>
-            <h1 className="titulo-menu">Por fim, sua sobremresa</h1>
+            <h1 className="titulo-menu">Por fim, sua sobremesa</h1>
             <ul className="menu-opcoes">
-                {opcoesSobremesas.map((objeto) => {
-                    const {titulo, texto, preco, img} = objeto;
+                {props.sobremesas.map((objeto) => {
+                    const {id, titulo, texto, preco, img, selecionado, qtd} = objeto;
 
                     return (
-                        <li className="opcao">
+                        <li onClick={() => {props.selecionar(id, "sobremesas")}} className={selecionado ? "opcao selecionado" : "opcao"}>
                             <img src={img} />
                             <h1 className="titulo-opcao">{titulo}</h1>
                             <span className="texto-opcao">{texto}</span>
@@ -38,7 +16,7 @@ export default function ConteudoSobremesas(props) {
                                 <span className="preco-opcao">R$ {preco.toFixed(2).replace(".", ",")}</span>
                                 <span>
                                     <button className="subtrair">-</button>
-                                    1
+                                    {qtd}
                                     <button className="adicionar">+</button>
                                 </span>
                             </div>
