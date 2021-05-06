@@ -123,12 +123,20 @@
     width: 364px;
     height: 61px;
     border-radius: 50px;
-    background-color: #CBCBCB;
-    color: #FFFFFF;
     font-size: 20px;
     letter-spacing: 0.018em;
     line-height: 23px;
+    color: #FFFFFF;
     text-align: center;
+}
+
+.rodape .botao-fechado {
+    background-color: #CBCBCB;
+}
+
+.rodape .botao-aberto {
+    background-color: #32B72F;
+    font-weight: 700;
 }
 
 .escondido {
