@@ -2,15 +2,24 @@ export default function ConteudoBebidas(props) {
     const opcoesBebidas = [{
         titulo: "Coquinha gelada", //adicionar alt nas variáveis
         texto: "Lata 350ml",
-        preco: 4.90
+        preco: 4.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
     }, {
         titulo: "Água de Coco",
         texto: "Garrafa 1000ml",
-        preco: 7.90
+        preco: 7.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
     }, {
         titulo: "Cerveja",
         texto: "Garrafa 600ml",
-        preco: 9.90
+        preco: 9.90,
+        img: "https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg",
+        selecionado: false,
+        qtd: 0
     }];
 
     return (
@@ -18,11 +27,11 @@ export default function ConteudoBebidas(props) {
             <h1 className="titulo-menu">Agora, sua bebida</h1>
             <ul className="menu-opcoes">
                 {opcoesBebidas.map((objeto) => {
-                    const {titulo, texto, preco} = objeto;
+                    const {titulo, texto, preco, img} = objeto;
 
                     return (
                         <li className="opcao">
-                            <img src="https://http2.mlstatic.com/D_NQ_NP_620438-MLB29512328329_022019-O.jpg" />
+                            <img src={img} />
                             <h1 className="titulo-opcao">{titulo}</h1>
                             <span className="texto-opcao">{texto}</span>
                             <div className="preco-contador">
