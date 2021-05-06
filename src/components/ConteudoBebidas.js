@@ -14,7 +14,7 @@ export default function ConteudoBebidas(props) {
                             <span className="texto-opcao">{texto}</span>
                             <div className="preco-contador">
                                 <span className="preco-opcao">R$ {preco.toFixed(2).replace(".", ",")}</span>
-                                <span className={selecionado ? "" : "escondido"}>
+                                <span className={selecionado || "escondido"}>
                                     <button className="subtrair">-</button>
                                     {qtd}
                                     <button className="adicionar">+</button>

@@ -14,10 +14,10 @@ export default function ConteudoPratos(props) {
                             <span className="texto-opcao">{texto}</span>
                             <div className="preco-contador">
                                 <span className="preco-opcao">R$ {preco.toFixed(2).replace(".", ",")}</span>
-                                <span className={selecionado ? "" : "escondido"}>
-                                    <button className="subtrair">-</button>
+                                <span className={selecionado || "escondido"}>
+                                    <button onClick={() => props.subtrair(id, "pratos")} className="subtrair">-</button>
                                     {qtd}
-                                    <button className="adicionar">+</button>
+                                    <button onClick={() => props.adicionar(id, "pratos")} className="adicionar">+</button>
                                 </span>
                             </div>
                         </li>

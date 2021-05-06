@@ -84,6 +84,7 @@ export default function Conteudo() {
 
     function selecionar(id, categoria) {
         if(categoria === "pratos") {
+            alert("coeeee");
             setPratos([...pratos], pratos[id].selecionado = true, pratos[id].qtd = 1);
         } else if(categoria === "bebidas") {
             setBebidas([...bebidas], bebidas[id].selecionado = true, bebidas[id].qtd = 1);
@@ -92,11 +93,26 @@ export default function Conteudo() {
         }
     }
 
+    function adicionar(id, categoria) {
+        if(categoria === "pratos") {
+            alert("oi");
+            setPratos([...pratos], pratos[id].qtd = 2);
+        } else if(categoria === "bebidas") {
+            setBebidas([...bebidas], bebidas[id].selecionado = true, bebidas[id].qtd = 1);
+        } else {
+            setSobremesas([...sobremesas], sobremesas[id].selecionado = true, sobremesas[id].qtd = 1);
+        }
+    }
+
+    function subtrair(id, categoria) {
+        alert("olá");
+    } 
+
     return (    
         <div className="conteudo">
-            <ConteudoPratos selecionar={selecionar} pratos={pratos} />
-            <ConteudoBebidas selecionar={selecionar} bebidas={bebidas} />
-            <ConteudoSobremesas selecionar={selecionar} sobremesas={sobremesas} />
+            <ConteudoPratos pratos={pratos} selecionar={selecionar} adicionar={adicionar} subtrair={subtrair} />
+            <ConteudoBebidas bebidas={bebidas} selecionar={selecionar} adicionar={adicionar} subtrair={subtrair} />
+            <ConteudoSobremesas sobremesas={sobremesas} selecionar={selecionar} adicionar={adicionar} subtrair={subtrair} />
         </div>
     );
 }
