@@ -84,11 +84,11 @@ export default function Conteudo() {
 
     function selecionar(id, categoria) {
         if(categoria === "pratos") {
-            setPratos([...pratos], pratos[id].selecionado = true);
+            setPratos([...pratos], pratos[id].selecionado = true, pratos[id].qtd = 1);
         } else if(categoria === "bebidas") {
-            setBebidas([...bebidas], bebidas[id].selecionado = true);
+            setBebidas([...bebidas], bebidas[id].selecionado = true, bebidas[id].qtd = 1);
         } else {
-            setSobremesas([...sobremesas], sobremesas[id].selecionado = true);
+            setSobremesas([...sobremesas], sobremesas[id].selecionado = true, sobremesas[id].qtd = 1);
         }
     }
 
