@@ -1,7 +1,6 @@
 import ConteudoBebidas from "./ConteudoBebidas";
 import ConteudoSobremesas from "./ConteudoSobremesas";
 import ConteudoPratos from "./ConteudoPratos";
-import React from "react";
 
 export default function Conteudo(props) {
     const {pratos, bebidas, sobremesas, selecionar, adicionar, subtrair} = props;

@@ -88,15 +88,11 @@ function App() {
     function selecionar(id, categoria) {
         if(categoria === "pratos") {
             if (pratos[id].qtd === 0) {
-                setPratos([...pratos], pratos[id].selecionado = true, pratos[id].qtd = 1);
-                pedido.push(pratos[id]);    
-                console.log(pedido);
+                setPratos([...pratos], pratos[id].selecionado = true, pratos[id].qtd = 1);    
             }            
         } else if(categoria === "bebidas") {
             if (bebidas[id].qtd === 0) {
-                setBebidas([...bebidas], bebidas[id].selecionado = true, bebidas[id].qtd = 1);
-                pedido.push(bebidas[id]);    
-                console.log(pedido);
+                setBebidas([...bebidas], bebidas[id].selecionado = true, bebidas[id].qtd = 1);    
             }    
         } else {
             sobremesas[id].qtd > 0 || setSobremesas([...sobremesas], sobremesas[id].selecionado = true, sobremesas[id].qtd = 1);
@@ -139,11 +135,8 @@ function App() {
 
     function liberarPedido() {
         let liberarPrato = pratos.find((objeto) => objeto.selecionado ? true : false);
-        console.log(liberarPrato);
         let liberarBebida = bebidas.find((objeto) => objeto.selecionado ? true : false);
-        console.log(liberarBebida);
         let liberarSobremesa = sobremesas.find((objeto) => objeto.selecionado ? true : false);
-        console.log(liberarSobremesa);
         if (liberarPrato !== undefined && liberarBebida !== undefined && liberarSobremesa !== undefined) {
             return true;
         } else {
@@ -151,11 +144,19 @@ function App() {
         }
     }
 
+    function fecharPedido() {
+        const pratosPedido = pratos.filter((objeto) => objeto.selecionado);
+        const bebidasPedido = bebidas.filter((objeto) => objeto.selecionado);
+        const sobremesasPedido = sobremesas.filter((objeto) => objeto.selecionado);
+        setPedido([...pratosPedido, ...bebidasPedido, ...sobremesasPedido]);
+        console.log(pedido);
+    }
+
     return (
         <>
             <Topo />
             <Conteudo pratos={pratos} bebidas={bebidas} sobremesas={sobremesas} selecionar={selecionar} adicionar={adicionar} subtrair={subtrair} />
-            <Rodape liberarPedido={liberarPedido} />
+            <Rodape liberarPedido={liberarPedido} fecharPedido={fecharPedido} />
         </>
     );
 }

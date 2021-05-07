@@ -1,5 +1,4 @@
 export default function BotaoPedido(props) {
-    console.log(props);
     
     return (
         <>
