@@ -13,11 +13,11 @@ export default function RevisaoPedido(props) {
     function enviarMensagem() {
         let stringOpcoes = "";
         props.pedido.forEach((objeto) => {
-            return  stringOpcoes += `- ${objeto.titulo} (${objeto.qtd}x)\n`;
+            return  stringOpcoes += `- ${objeto.classe}: ${objeto.titulo} (${objeto.qtd}x)\n`;
         });
         console.log(stringOpcoes);  
         
-        const textoPedido = 'Olá, gostaria de fazer o pedido: \n' + stringOpcoes + 'Total: R$ ' + total.toFixed(2).replace(".", ",");
+        let textoPedido = 'Olá, gostaria de fazer o pedido: \n' + stringOpcoes + 'Total: R$ ' + total.toFixed(2).replace(".", ",");
         console.log(textoPedido);
         textoPedido = encodeURIComponent(textoPedido);
         window.open(`https://wa.me/5527981582571?text=${textoPedido}`);

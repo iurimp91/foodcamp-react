@@ -14,7 +14,8 @@ function App() {
         preco: 14.90,
         img: "./images/frango_yin_yang.png",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Prato" 
     }, { 
         id: 1,
         titulo: "Arroz e Feijão",
@@ -22,7 +23,8 @@ function App() {
         preco: 11.90,
         img: "./images/arroz-feijao.jpg",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Prato"
     }, {
         id: 2,
         titulo: "X-Podrão",
@@ -30,7 +32,8 @@ function App() {
         preco: 9.90,
         img: "./images/podrao.jpg",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Prato"
     }]);
 
     const [bebidas, setBebidas] = React.useState([{
@@ -40,7 +43,8 @@ function App() {
         preco: 4.90,
         img: "./images/coquinha_gelada.png",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Bebida"
     }, {
         id: 1,
         titulo: "Água de Coco",
@@ -48,7 +52,8 @@ function App() {
         preco: 7.90,
         img: "./images/agua-de-coco.jpg",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Bebida"
     }, {
         id: 2,
         titulo: "Cerveja",
@@ -56,7 +61,8 @@ function App() {
         preco: 9.90,
         img: "./images/cervejas.jpg",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Bebida"
     }]);
 
     const [sobremesas, setSobremesas] = React.useState([{
@@ -66,7 +72,8 @@ function App() {
         preco: 7.90,
         img: "./images/pudim.png",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Sobremesa"
     }, {
         id: 1,
         titulo: "Petit Gateau",
@@ -74,7 +81,8 @@ function App() {
         preco: 14.90,
         img: "./images/petit-gateau.jpg",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Sobremesa"
     }, {
         id: 2,
         titulo: "Sorvete caseiro",
@@ -82,17 +90,18 @@ function App() {
         preco: 8.90,
         img: "./images/sorvete.jpg",
         selecionado: false,
-        qtd: 0
+        qtd: 0,
+        classe: "Sobremesa"
     }]);
 
     const [pedido, setPedido] = React.useState([]);
 
-    function selecionar(id, categoria) {
-        if(categoria === "pratos") {
+    function selecionar(id, classe) {
+        if(classe === "Prato") {
             if (pratos[id].qtd === 0) {
                 setPratos([...pratos], pratos[id].selecionado = true, pratos[id].qtd = 1);    
             }            
-        } else if(categoria === "bebidas") {
+        } else if(classe === "Bebida") {
             if (bebidas[id].qtd === 0) {
                 setBebidas([...bebidas], bebidas[id].selecionado = true, bebidas[id].qtd = 1);    
             }    
@@ -102,11 +111,11 @@ function App() {
         liberarPedido();
     }
 
-    function adicionar(e, id, categoria) {
+    function adicionar(e, id, classe) {
         e.stopPropagation();
-        if(categoria === "pratos") {
+        if(classe === "Prato") {
             setPratos([...pratos], pratos[id].qtd++);
-        } else if(categoria === "bebidas") {
+        } else if(classe === "Bebida") {
             setBebidas([...bebidas], bebidas[id].qtd++);
         } else {
             setSobremesas([...sobremesas], sobremesas[id].qtd++);
@@ -114,14 +123,14 @@ function App() {
         liberarPedido();
     }
 
-    function subtrair(e, id, categoria) {
+    function subtrair(e, id, classe) {
         e.stopPropagation();
-        if(categoria === "pratos") {
+        if(classe === "Prato") {
             setPratos([...pratos], pratos[id].qtd--);
             if(pratos[id].qtd === 0) {
                 pratos[id].selecionado = false;
             }
-        } else if(categoria === "bebidas") {
+        } else if(classe === "Bebida") {
             setBebidas([...bebidas], bebidas[id].qtd--);
             if(bebidas[id].qtd === 0) {
                 bebidas[id].selecionado = false;
