@@ -10,6 +10,19 @@ export default function RevisaoPedido(props) {
         return total;
     }
 
+    function enviarMensagem() {
+        let stringOpcoes = "";
+        props.pedido.forEach((objeto) => {
+            return  stringOpcoes += `- ${objeto.titulo} (${objeto.qtd}x)\n`;
+        });
+        console.log(stringOpcoes);  
+        
+        const textoPedido = 'Olá, gostaria de fazer o pedido: \n' + stringOpcoes + 'Total: R$ ' + total.toFixed(2).replace(".", ",");
+        console.log(textoPedido);
+        textoPedido = encodeURIComponent(textoPedido);
+        window.open(`https://wa.me/5527981582571?text=${textoPedido}`);
+    }
+
     return (
         <div className="conteudo-revisao">
             <h1 className="titulo-menu">Revise seu pedido</h1>
@@ -25,7 +38,7 @@ export default function RevisaoPedido(props) {
                 )}
                 <TotalPedido total={total} />
             </ul>
-            <BotaoFecharPedido />
+            <BotaoFecharPedido enviarMensagem={enviarMensagem} />
         </div>
     );
 }

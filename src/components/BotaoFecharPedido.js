@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function BotaoFecharPedido() {
+export default function BotaoFecharPedido(props) {
     return (
         <div className="botoes-fechar-cancelar">
-            <button>Tudo certo, pode pedir!</button>
+            <button onClick={props.enviarMensagem}>Tudo certo, pode pedir!</button>
             <Link to="/">Cancelar</Link>
         </div> 
     );
