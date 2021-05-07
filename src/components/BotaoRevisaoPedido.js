@@ -1,4 +1,4 @@
-export default function BotaoPedido(props) {
+export default function BotaoRevisaoPedido(props) {
     
     return (
         <>

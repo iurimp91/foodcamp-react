@@ -151,7 +151,6 @@ function App() {
         const bebidasPedido = bebidas.filter((objeto) => objeto.selecionado);
         const sobremesasPedido = sobremesas.filter((objeto) => objeto.selecionado);
         setPedido([...pratosPedido, ...bebidasPedido, ...sobremesasPedido]);
-        console.log(pedido);
     }
 
     return (
@@ -163,8 +162,8 @@ function App() {
                     <Rodape liberarPedido={liberarPedido} fecharPedido={fecharPedido} />
                 </Route>
                 <Route path="/RevisaoPedido">
-                    <RevisaoPedido />
-                </Route>
+                    <RevisaoPedido pedido={pedido} />
+                </Route> 
             </Switch>
         </Router>
     );

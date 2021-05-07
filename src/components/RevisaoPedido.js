@@ -1,31 +1,31 @@
-import { Link } from "react-router-dom";
+import TotalPedido from "./TotalPedido";
+import BotaoFecharPedido from "./BotaoFecharPedido";
 
-export default function RevisaoPedido() {
+export default function RevisaoPedido(props) {
+    let total = 0;
+    somaTotal();
+
+    function somaTotal() {
+        props.pedido.forEach((objeto) => total += objeto.qtd * objeto.preco);
+        return total;
+    }
+
     return (
         <div className="conteudo-revisao">
             <h1 className="titulo-menu">Revise seu pedido</h1>
             <ul className="revisao-pedido">
-                <li>
-                    <span>Frango Yin Yang</span>
-                    <span>14,90</span>
-                </li>
-                <li>
-                    <span>Coquinha gelada</span>
-                    <span>4,90</span>
-                </li>
-                <li>
-                    <span>Pudim</span>
-                    <span>7,90</span>
-                </li>
-                <li className="total-pedido">
-                    <span>TOTAL</span>
-                    <span>R$ 27,70</span>
-                </li>
+                {props.pedido.map((objeto) => 
+                    <li>
+                        <span>{objeto.titulo}</span>
+                        <div>
+                            <span className="quantidade-pedido">{`${objeto.qtd}x `}</span>
+                            <span>{objeto.preco.toFixed(2).replace(".", ",")}</span>
+                        </div>
+                    </li>
+                )}
+                <TotalPedido total={total} />
             </ul>
-            <div className="botoes-fechar-cancelar">
-                <button>Tudo certo, pode pedir!</button>
-                <Link to="/">Cancelar</Link>
-            </div>
+            <BotaoFecharPedido />
         </div>
     );
 }
