@@ -4,6 +4,7 @@ import Topo from "./components/Topo";
 import Conteudo from './components/Conteudo';
 import Rodape from "./components/Rodape";
 import RevisaoPedido from "./components/RevisaoPedido";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
     const [pratos, setPratos] = React.useState([{
@@ -154,12 +155,18 @@ function App() {
     }
 
     return (
-        <>
+        <Router>
             <Topo />
-            <Conteudo pratos={pratos} bebidas={bebidas} sobremesas={sobremesas} selecionar={selecionar} adicionar={adicionar} subtrair={subtrair} />
-            {/*<RevisaoPedido />*/}
-            <Rodape liberarPedido={liberarPedido} fecharPedido={fecharPedido} />
-        </>
+            <Switch>
+                <Route exact path="/">
+                    <Conteudo pratos={pratos} bebidas={bebidas} sobremesas={sobremesas} selecionar={selecionar} adicionar={adicionar} subtrair={subtrair} />
+                    <Rodape liberarPedido={liberarPedido} fecharPedido={fecharPedido} />
+                </Route>
+                <Route path="/RevisaoPedido">
+                    <RevisaoPedido />
+                </Route>
+            </Switch>
+        </Router>
     );
 }
 

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function RevisaoPedido() {
     return (
         <div className="conteudo-revisao">
@@ -22,7 +24,7 @@ export default function RevisaoPedido() {
             </ul>
             <div className="botoes-fechar-cancelar">
                 <button>Tudo certo, pode pedir!</button>
-                <span>Cancelar</span>
+                <Link to="/">Cancelar</Link>
             </div>
         </div>
     );
