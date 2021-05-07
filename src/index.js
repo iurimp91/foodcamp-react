@@ -3,6 +3,7 @@ import React from "react";
 import Topo from "./components/Topo";
 import Conteudo from './components/Conteudo';
 import Rodape from "./components/Rodape";
+import RevisaoPedido from "./components/RevisaoPedido";
 
 function App() {
     const [pratos, setPratos] = React.useState([{
@@ -156,6 +157,7 @@ function App() {
         <>
             <Topo />
             <Conteudo pratos={pratos} bebidas={bebidas} sobremesas={sobremesas} selecionar={selecionar} adicionar={adicionar} subtrair={subtrair} />
+            {/*<RevisaoPedido />*/}
             <Rodape liberarPedido={liberarPedido} fecharPedido={fecharPedido} />
         </>
     );

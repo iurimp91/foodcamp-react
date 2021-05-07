@@ -139,6 +139,66 @@
     font-weight: 700;
 }
 
+.conteudo-revisao {
+    height: calc(100vh - 92px);
+    margin-top: 92px;
+    background-color: #EEEEEE;
+}
+
+.revisao-pedido {
+    width: 377px;
+    padding: 30px 25px 5px 25px;
+    background-color: #FFFFFF;
+    margin: 33px auto;
+    border-radius: 9px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+}
+
+.revisao-pedido li {
+    font-family: Roboto;
+    color: #333333;
+    font-size: 22px;
+    letter-spacing: 0.018em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.total-pedido {
+    font-weight: 700;
+}
+
+.botoes-fechar-cancelar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botoes-fechar-cancelar button {
+    width: 329px;
+    height: 52px;
+    border-radius: 100px;
+    background-color: #50D074;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.018em;
+    color: #FFFFFF;
+    border: none;
+    margin: auto;
+}
+
+.botoes-fechar-cancelar span {
+    text-align: center;
+    margin-top: 15px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.018em;
+    color: #777777;
+}
+
 .escondido {
     display: none;
 }
